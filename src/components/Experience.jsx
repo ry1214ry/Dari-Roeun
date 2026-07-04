@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
 import { experience } from "../data/experience";
 
@@ -6,20 +5,14 @@ export default function Experience() {
   return (
     <section id="experience" className="py-16 sm:py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-500/3 to-transparent" />
-      <div className="absolute top-40 right-20 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute top-40 right-20 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16"
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4">
             Experience & <span className="text-gradient-purple">Education</span>
           </h2>
           <div className="section-divider" />
-        </motion.div>
+        </div>
 
         <div className="relative max-w-3xl mx-auto">
           <div className="absolute left-[18px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#00abf0]/50 via-purple-500/30 to-transparent md:-translate-x-px" />
@@ -29,12 +22,8 @@ export default function Experience() {
             const Icon = item.type === "work" ? Briefcase : GraduationCap;
 
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1 }}
                 className={`relative flex flex-col md:flex-row items-start gap-4 md:gap-6 mb-8 md:mb-12 ${
                   isLeft ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
@@ -95,7 +84,7 @@ export default function Experience() {
                     </ul>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

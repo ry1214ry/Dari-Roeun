@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -45,14 +44,12 @@ export default function App() {
 function AppContent({ loading, setLoading }) {
   const { darkMode } = useTheme();
   return (
-    <div className={`min-h-screen font-sans selection:bg-[#00abf0]/30 selection:text-white transition-colors duration-300 ${darkMode ? "bg-[#0a0a0f] text-white" : "bg-white text-gray-900"}`}>
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <Loader key="loader" />
-        ) : (
-          <HomePage key="home" />
-        )}
-      </AnimatePresence>
+    <div className={`min-h-screen font-sans selection:bg-[#00abf0]/30 selection:text-white ${darkMode ? "bg-[#0a0a0f] text-white" : "bg-[#f0f4f8] text-gray-900"}`}>
+      {loading ? (
+        <Loader key="loader" />
+      ) : (
+        <HomePage key="home" />
+      )}
     </div>
   );
 }

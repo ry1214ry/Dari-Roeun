@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { projects, categories } from "../data/projects";
 
@@ -17,32 +16,21 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 sm:py-20 md:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00abf0]/3 to-transparent" />
-      <div className="absolute top-20 right-10 w-80 h-80 bg-[#00abf0]/5 rounded-full blur-3xl animate-float" style={{ animationDelay: "-1s" }} />
+      <div className="absolute top-20 right-10 w-80 h-80 bg-[#00abf0]/5 rounded-full blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12"
-        >
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4">
             Featured <span className="text-gradient-blue">Projects</span>
           </h2>
           <div className="section-divider" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12 flex-wrap"
-        >
+        <div className="flex justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-12 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium capitalize transition-all duration-300 ${
+              className={`px-3 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium capitalize ${
                 activeCategory === cat
                   ? "bg-gradient-to-r from-[#00abf0] to-[#0094d4] text-[#0a0a0f] font-semibold shadow-lg shadow-[#00abf0]/20"
                   : "bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 border border-transparent"
@@ -51,68 +39,60 @@ export default function Projects() {
               {cat}
             </button>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div layout className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
-                whileHover={{ y: -6 }}
-                className="group card overflow-hidden"
-              >
-                <div className="relative overflow-hidden aspect-video">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-3 p-4">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 bg-gradient-to-br from-[#00abf0] to-[#0094d4] text-[#0a0a0f] rounded-lg hover:scale-110 transition-transform shadow-lg shadow-[#00abf0]/30"
-                      aria-label="Live demo"
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 glass text-white rounded-lg hover:bg-white/20 transition-all backdrop-blur-sm hover:scale-110"
-                      aria-label="GitHub repository"
-                    >
-                      <GitHubIcon />
-                    </a>
-                  </div>
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+          {filtered.map((project) => (
+            <div
+              key={project.id}
+              className="group card overflow-hidden"
+            >
+              <div className="relative overflow-hidden aspect-video">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 flex items-end justify-center gap-3 p-4">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-gradient-to-br from-[#00abf0] to-[#0094d4] text-[#0a0a0f] rounded-lg shadow-lg shadow-[#00abf0]/30"
+                    aria-label="Live demo"
+                  >
+                    <ExternalLink size={16} />
+                  </a>
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 glass text-white rounded-lg hover:bg-white/20 backdrop-blur-sm"
+                    aria-label="GitHub repository"
+                  >
+                    <GitHubIcon />
+                  </a>
                 </div>
+              </div>
 
-                <div className="p-3 sm:p-5">
-                  <h3 className="font-bold text-xs sm:text-base mb-1 sm:mb-2 group-hover:text-[#00abf0] transition-colors leading-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mb-2 sm:mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1 sm:gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="tag text-[8px] sm:text-xs px-1.5 py-0.5 sm:px-2.5 sm:py-1">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              <div className="p-3 sm:p-5">
+                <h3 className="font-bold text-xs sm:text-base mb-1 sm:mb-2 leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-gray-500 text-[10px] sm:text-sm leading-relaxed mb-2 sm:mb-4 line-clamp-2">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1 sm:gap-2">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="tag text-[8px] sm:text-xs px-1.5 py-0.5 sm:px-2.5 sm:py-1">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
