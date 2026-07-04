@@ -16,10 +16,7 @@
     box-sizing: border-box;
   }
 
-  html {
-    /* Changed from smooth to auto to remove scroll animations */
-    scroll-behavior: auto; 
-  }
+  
 
   body {
     font-family: var(--font-sans);
@@ -128,17 +125,6 @@
     background-size: 60px 60px;
   }
 
-  .animated-gradient {
-    background: linear-gradient(
-      -45deg,
-      rgba(0, 171, 240, 0.05),
-      rgba(139, 92, 246, 0.05),
-      rgba(217, 70, 239, 0.05),
-      rgba(0, 171, 240, 0.05)
-    );
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-  }
 
   .btn-primary {
     background: linear-gradient(135deg, #00abf0, #0094d4);
@@ -381,13 +367,7 @@
   }
 }
 
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
-.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
-.animate-gradient { animation: gradientShift 15s ease infinite; background-size: 400% 400%; }
-.animate-fade-in-up { animation: fade-in-up 0.6s ease-out; }
-.animate-spin-slow { animation: spin-slow 8s linear infinite; }
-.animate-border-glow { animation: border-glow 3s ease-in-out infinite; }
+
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0a0a0f; }
@@ -410,13 +390,3 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
