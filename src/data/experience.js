@@ -1,0 +1,57 @@
+export const experience = [
+  {
+    id: 1,
+    type: "work",
+    title: "Senior Full Stack Developer",
+    organization: "Tech Corp Inc.",
+    location: "San Francisco, CA",
+    period: "Jan 2023 - Present",
+    description: [
+      "Lead development of microservices architecture serving 1M+ users",
+      "Mentored a team of 5 junior developers",
+      "Reduced API response time by 40% through optimization",
+      "Implemented CI/CD pipeline reducing deployment time by 60%",
+    ],
+  },
+  {
+    id: 2,
+    type: "work",
+    title: "Full Stack Developer",
+    organization: "Digital Solutions Co.",
+    location: "New York, NY",
+    period: "Mar 2021 - Dec 2022",
+    description: [
+      "Built and maintained 10+ client-facing web applications",
+      "Developed RESTful APIs using Node.js and Express",
+      "Integrated third-party services and payment gateways",
+      "Collaborated with design team on UI/UX improvements",
+    ],
+  },
+  {
+    id: 3,
+    type: "education",
+    title: "B.S. Computer Science",
+    organization: "University of Technology",
+    location: "Boston, MA",
+    period: "Sep 2017 - Jun 2021",
+    description: [
+      "Graduated with Honors (GPA: 3.8/4.0)",
+      "Dean's List for 6 consecutive semesters",
+      "Led university's Web Development Club",
+      "Completed capstone project on real-time data visualization",
+    ],
+  },
+  {
+    id: 4,
+    type: "education",
+    title: "Full Stack Web Development Bootcamp",
+    organization: "Code Academy",
+    location: "Online",
+    period: "Jun 2020 - Aug 2020",
+    description: [
+      "Intensive 12-week program covering MERN stack",
+      "Built 5 full-stack projects from scratch",
+      "Awarded 'Best Project' for e-commerce platform",
+    ],
+  },
+];
